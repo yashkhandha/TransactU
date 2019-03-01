@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+    <h:head>
+        <title>#{transactionController.transaction.transactionNumber}</title>
+    </h:head>
+    <h:body>
+        <h1>Transaction No : #{transactionController.transaction.transactionNumber}</h1>
+        <ul>
+            <li>Transaction Name : #{transactionController.transaction.transactionName}</li>
+            <li>Transaction Description : #{transactionController.transaction.transactionDescription}</li>
+            <li>Transaction Type : #{transactionController.transaction.transactionType}</li>
+            <li>User : #{transactionController.transaction.user.userFirstName}</li>
+        </ul>
+        <div class="form-control">
+        <p><h:link value="  Return to View transactions" outcome="/transaction/viewtransaction" class="glyphicon glyphicon-check"/></p>
+        </div>
+    </h:body>
+</html>
+

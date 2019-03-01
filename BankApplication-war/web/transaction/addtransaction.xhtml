@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+        <title>
+            Add Transaction
+        </title>
+    </h:head>
+    <div class="navbar navbar-inverse navbar-inverse">
+             <div class="navbar-brand">
+                 <span class="badge badge-secondary">BA</span>
+                 Adding transactions
+             </div>
+    </div>
+    
+    <h:body>
+        <div class="container-fluid">
+         <div class="row">
+             <div class="col-xs-10">
+                 <p><a class="btn btn-primary" data-toggle="collapse" href="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">
+                        Adding Transactions
+                     </a>
+                 </p>
+                 <div class="collapse" id="collapseInfo">
+                        <div class="card card-body">
+                         Please enter your transaction information in this section 
+                        </div>
+                 </div>
+                    <br/><br/>
+                    <h:form class="form-horizontal">
+                        
+                        <div class="form-group">
+                            <label for="transactionName" class="col-sm-2 control-label">Transaction name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class=""></i></span>
+                                    <h:inputText id="transactionName" label="transactionName" required="false" requiredMessage="You must enter you transaction name" 
+                                    value="#{transactionController.transaction.transactionName}" styleClass="form-control" p:placeholder="Please enter transaction name" >
+                                
+                                    </h:inputText>
+                                </div>    
+                            </div>
+                            <h:message for="transactionName" style="color: red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="transactionDescription" class="col-sm-2 control-label">Transaction description</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class=""></i></span>
+                                    <h:inputText id="transactionDescription" label="transactionDescription" required="false" requiredMessage="You must enter transaction description"
+                                     value="#{transactionController.transaction.transactionDescription}" styleClass="form-control" p:placeholder="Please enter your transaction description">
+                                    </h:inputText>
+                                </div>    
+                            </div>
+                            <h:message for="transactionDescription" style="color:red"></h:message>
+                        </div>
+                     
+                        <div class="form-group">
+                            <label for="transactionType" class="col-sm-2 control-label">Transaction Type</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class=""></i></span>
+                                    <h:selectOneMenu id="type" value="#{transactionController.transaction.transactionType}" styleClass="form-control panel-success " required="true" requiredMessage="enter type" p:placeholder="enter">
+                                       
+                                        <f:selectItem itemLabel="Select transaction type.." itemDisabled="true" />
+                                
+                                        <f:selectItem itemLabel="Credit" itemValue="Credit"/>
+                                        <f:selectItem itemLabel="Debit" itemValue="Debit"/>
+                                    </h:selectOneMenu>
+                                </div>
+                            </div>
+                            <h:message for="transactionType"></h:message>
+                        </div>
+                        
+                        
+                        
+                        <div class="form-group">
+                            <label for="user" class="col-sm-2 control-label">User</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class=""></i></span>                                    
+                                    <h:selectOneMenu value="#{transactionController.name}" styleClass="form-control">
+                                        <f:selectItem itemLabel="Select user.." itemDisabled="true" />
+                                        <f:selectItems value="#{userController.allNames}"/>                                       
+                                    </h:selectOneMenu>                                   
+                                </div>
+                            </div>
+                            <h:message for="user"></h:message>
+                        </div>
+           
+                        <div class="form-group">
+                            <div class="col-sm-8 col-sm-push-2">
+                                <h:commandButton action="#{transactionController.add()}" id="submit" value="Submit" styleClass="btn btn-success">
+                                </h:commandButton>
+                            </div>    
+                        </div>
+                   
+                    </h:form>    
+             </div>
+         </div>
+     </div>    
+        <div class="form-control">
+        <p><h:link value="  Home" outcome="/startup/index" class="glyphicon glyphicon-home"/></p>
+        </div>
+    </h:body>
+</html>
+

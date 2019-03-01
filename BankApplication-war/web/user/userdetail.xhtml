@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+        <title>
+            View User
+        </title>
+    </h:head>
+    <div class="navbar navbar-inverse navbar-inverse">
+             <div class="navbar-brand">
+                 <span class="badge badge-secondary">UA</span>
+                 View user details
+             </div>
+    </div>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-10">
+                    <p><a class="btn btn-primary" data-toggle="collapse" href="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">
+                        Viewing User Details
+                     </a>
+                    </p>
+                    <div class="collapse" id="collapseInfo">
+                        <div class="card card-body">
+                         
+                        </div>
+                    </div>
+                    <br/><br/>              
+                    <h:form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="userFirstName" class="col-sm-2 control-label">User First Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userFirstName" label="userFirstName" required="true" requiredMessage="You must enter user first name!" 
+                                                 size="32" value="#{userController.person.userFirstName}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userFirstName"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="userLastName" class="col-sm-2 control-label">User Last Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userLastName" label="userLastName" required="true" requiredMessage="You must enter user last name!" 
+                                                 size="32" value="#{userController.person.userLastName}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userLastName"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmailAddress" class="col-sm-2 control-label">User Email Address</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userEmailAddress" label="userEmailAddress" required="true" requiredMessage="You must enter email address!" 
+                                                 size="32" value="#{userController.person.userEmailAddress}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userEmailAdddress"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth" class="col-sm-2 control-label">User Date Of Birth</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="dateOfBirth" label="dateOfBirth" required="false" requiredMessage="You must enter dob!" 
+                                                 size="32" value="#{userController.person.dateOfBirth}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="dateOfBirth"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="userType" class="col-sm-2 control-label">User Type</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userType" label="userType" required="true" requiredMessage="You must enter user type!" 
+                                                 size="32" value="#{userController.person.userType}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userType"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="userPhoneNumber" class="col-sm-2 control-label">User Phone Number</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userPhoneNumber" label="userPhoneNumber" required="true" requiredMessage="You must enter user contact!" 
+                                                 size="32" value="#{userController.person.userPhoneNumber}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userPhoneNumber"></h:message>
+                        </div>
+                        <h>Address Details :</h>
+                        <div class="form-group">
+                            <label for="streetNumber" class="col-sm-2 control-label">Street Number</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="streetNumber" label="streetNumber" required="true" requiredMessage="You must enter street number!" 
+                                                 size="32" value="#{userController.person.userAddress.streetNumber}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="streetNumber"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="streetName" class="col-sm-2 control-label">Street Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="streetName" label="streetName" required="true" requiredMessage="You must enter street name!" 
+                                                 size="32" value="#{userController.person.userAddress.streetName}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="streetName"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="suburb" class="col-sm-2 control-label">Suburb</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="suburb" label="suburb" required="true" requiredMessage="You must enter suburb!" 
+                                                 size="32" value="#{userController.person.userAddress.suburb}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="suburb"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="postcode" class="col-sm-2 control-label">Postal Code</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="postcode" label="postcode" required="true" requiredMessage="You must enter post code!" 
+                                                 size="32" value="#{userController.person.userAddress.postcode}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="postcode"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="col-sm-2 control-label">State</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="state" label="state" required="true" requiredMessage="You must enter state!" 
+                                                 size="32" value="#{userController.person.userAddress.state}" styleClass="form-control" readonly="true" >        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="state"></h:message>
+                        </div>
+                      
+                   
+                        
+                       <div class="form-group">
+                            <div class="col-sm-8 col-sm-push-2">
+                                <h:commandButton action="/user/viewusers" id="return" value="Return to View Users" styleClass="btn btn-success">
+                                </h:commandButton>
+                            </div>    
+                        </div>
+                        
+                        
+                    </h:form>
+                    
+                </div>
+            </div>
+        </div>
+       
+    </h:body>
+    
+    
+</html>

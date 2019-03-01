@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:s="http://primefaces.org/ui">
+    
+    
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"/>
+  <link rel="stylesheet" href="/resources/demos/style.css"/>
+  
+  <script type='text/javascript'>
+                            $(function(){
+                                $('.datepicker').datepicker({
+                                    dateFormat: 'dd MM, yy',
+                                    changeMonth: true,
+                                    changeYear: true,
+                                    yearRange: "1960:2017"
+                                });
+                            })
+                        </script>
+  
+    <h:head>
+        <h:outputStylesheet name="css/style.css"/>
+        <h:outputStylesheet name="bootstrap-3.3.7-dist/css/bootstrap.min.css"/>
+        <title>
+            Add User
+        </title>
+    </h:head>
+    <div class="navbar navbar-inverse navbar-inverse">
+             <div class="navbar-brand">
+                 <span class="badge badge-secondary">BA</span>
+                 Adding users
+             </div>
+    </div>
+    <h:body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-10">
+                    <p><a class="btn btn-primary" data-toggle="collapse" href="#collapseInfo" aria-expanded="false" aria-controls="collapseInfo">
+                        Adding Users
+                     </a>
+                    </p>
+                    <div class="collapse" id="collapseInfo">
+                        <div class="card card-body">
+                         Please enter your user details in this section 
+                        </div>
+                    </div>
+                    <br/><br/>              
+                    <h:form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="userFirstName" class="col-sm-2 control-label">User First Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userFirstName" label="userFirstName" required="true" 
+                                                 requiredMessage="You must enter user first name!" 
+                                                 validatorMessage="User first name can contain only characters !"
+                                                 size="32" value="#{userController.person.userFirstName}" 
+                                                 styleClass="form-control" p:placeholder="Please enter your first name here" 
+                                                 style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}"
+                                                 title="Enter characters only" >
+                                        <s:tooltip id="toolTipFocus" for="userFirstName" showEvent="focus" hideEvent="blur" />
+                                    <f:validateRegex pattern="[a-zA-Z]+"/>
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userFirstName" style="color: red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="userLastName" class="col-sm-2 control-label">User Last Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userLastName" label="userLastName" required="true" requiredMessage="You must enter user last name!" validatorMessage="User last name can contain only characters !"
+                                                 size="32" value="#{userController.person.userLastName}" styleClass="form-control" p:placeholder="Please enter your last name here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}">        
+                                    <f:validateRegex pattern="[a-zA-Z]+"/>
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userLastName" style="color: red"></h:message>
+                        </div>
+<div class="form-group">
+                            <label for="userEmailAddress" class="col-sm-2 control-label">User Email Address</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userEmailAddress" label="userEmailAddress" required="true" requiredMessage="You must enter user email!" validatorMessage="Email must be like demo@demo.com"
+                                                 size="32" value="#{userController.person.userEmailAddress}" styleClass="form-control" p:placeholder="Please enter your email address here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userEmailAddress" style="color:red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="dateOfBirth" class="col-sm-2 control-label">User Date Of Birth</label>
+                            <div class="col-sm-6">
+                                <div class="input-group date"> <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                    <h:inputText required="true" requiredMessage="You must enter dob!" 
+                                                 size="32" value="#{userController.person.dateOfBirth}" styleClass="form-control datepicker" p:placeholder="Please enter your date of birth here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                    </h:inputText> 
+                                     
+                                </div>       
+                            </div>   
+                            <h:message for="dateOfBirth" style="color: red"></h:message>
+                        </div>
+                        
+                        
+                        
+                        <div class="form-group">
+                            <label for="userType" class="col-sm-2 control-label">User Type</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+         
+                                    <h:selectOneMenu id="type" value="#{userController.person.userType}" styleClass="form-control panel-success " required="true" requiredMessage="enter type" p:placeholder="enter" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}">
+                                       
+                                        <f:selectItem itemLabel="Select user type.." itemDisabled="true" />
+                                
+                                        <f:selectItem itemLabel="Bank worker" itemValue="Bank user"/>
+                                        <f:selectItem itemLabel="Public user" itemValue="Public user"/>
+                                    </h:selectOneMenu>
+                                </div>       
+                            </div>   
+                            <h:message for="userType" style="color: red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="userPhoneNumber" class="col-sm-2 control-label">User Phone Number</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="userPhoneNumber" label="userPhoneNumber" required="true" requiredMessage="You must enter user contact!" validatorMessage="Phone number must be 9 digits only"
+                                                 size="32" value="#{userController.person.userPhoneNumber}" styleClass="form-control" p:placeholder="Please enter user contact here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                        <f:validateLength minimum="9" maximum="9"/>
+                        
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="userPhoneNumber" style="color:red"></h:message>
+                        </div>
+                        <h>Address Details :</h>
+                        <div class="form-group">
+                            <label for="streetNumber" class="col-sm-2 control-label">Street Number</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="streetNumber" label="streetNumber" required="true" requiredMessage="You must enter street number!" validatorMessage="No special characters accepted"
+                                                 size="32" value="#{userController.address.streetNumber}" styleClass="form-control" p:placeholder="Please enter user type here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                    <f:validateRegex pattern="[a-zA-Z0-9]+"/>
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="streetNumber" style="color: red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="streetName" class="col-sm-2 control-label">Street Name</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="streetName" label="streetName" required="true" requiredMessage="You must enter street name!" validatorMessage="No special characters accepted"
+                                                 size="32" value="#{userController.address.streetName}" styleClass="form-control" p:placeholder="Please enter street name here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                    <f:validateRegex pattern="[a-zA-Z0-9_ ]+"/>
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="streetName" style="color: red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="suburb" class="col-sm-2 control-label">Suburb</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="suburb" label="suburb" required="true" requiredMessage="You must enter suburb!" validatorMessage="No special characters accepted"
+                                                 size="32" value="#{userController.address.suburb}" styleClass="form-control" p:placeholder="Please enter suburb here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                    <f:validateRegex pattern="[a-zA-Z]+"/>
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="suburb" style="color: red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="postcode" class="col-sm-2 control-label">Postal Code</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="postcode" label="postcode" required="true" requiredMessage="You must enter post code!" validatorMessage="Only 4 digit numbers accepted"
+                                                 size="32" value="#{userController.address.postcode}" styleClass="form-control" p:placeholder="Please enter post code here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                    <f:validateRegex pattern="^[0-9]*$"/>
+                                    <f:validateLength minimum="4" maximum="4"/>
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="postcode" style="color: red"></h:message>
+                        </div>
+                        <div class="form-group">
+                            <label for="state" class="col-sm-2 control-label">State</label>
+                            <div class="col-sm-6">
+                                <div class="input-group"> <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <h:inputText id="state" label="state" required="true" requiredMessage="You must enter state!" validatorMessage="Only characters accepted"
+                                                 size="32" value="#{userController.address.state}" styleClass="form-control" p:placeholder="Please enter state here" style="#{ component.valid ? 'border-color:LimeGreen;' : 'border-color:red;'}" >        
+                                    <f:validateRegex pattern="[a-zA-Z_ ]+"/>
+                                    </h:inputText> 
+                                </div>       
+                            </div>   
+                            <h:message for="state" style="color: red"></h:message>
+                        </div>
+                       <div class="form-group">
+                            <div class="col-sm-8 col-sm-push-2">
+                                <h:commandButton action="#{userController.add()}" id="submit" value="Add User" styleClass="btn btn-success">
+                                </h:commandButton>
+                            </div>    
+                        </div>
+                        
+                        
+                    </h:form>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="form-control">
+        <p><h:link value="  Home" outcome="/startup/index" class="glyphicon glyphicon-home"/></p>
+        </div>
+    </h:body>
+    
+    
+</html>
